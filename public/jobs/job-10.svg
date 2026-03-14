@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 680' role='img' aria-label='Atencion al cliente call center (operativo)'>
+  <defs>
+    <linearGradient id='bg10' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#ede9fe'/>
+      <stop offset='100%' stop-color='#ddd6fe'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='680' fill='url(#bg10)'/>
+  <rect x='48' y='44' width='1104' height='592' rx='24' fill='white' opacity='0.6'/>
+  <g>
+    <circle cx='164' cy='186' r='54' fill='#6d28d9'/><path d='M112 190v42M216 190v42' stroke='white' stroke-width='12' stroke-linecap='round'/><rect x='138' y='248' width='52' height='26' rx='8' fill='white' opacity='0.9'/>
+  </g>
+  <rect x='306' y='128' width='806' height='58' rx='12' fill='#6d28d9' opacity='0.18'/>
+  <rect x='306' y='214' width='736' height='44' rx='10' fill='#0f172a' opacity='0.14'/>
+  <rect x='306' y='276' width='680' height='38' rx='10' fill='#0f172a' opacity='0.12'/>
+  <text x='306' y='164' font-size='30' font-family='Arial, sans-serif' font-weight='700' fill='#0f172a'>Atencion al cliente call center (operativo)</text>
+  <text x='306' y='344' font-size='26' font-family='Arial, sans-serif' font-weight='700' fill='#6d28d9'>ATENCION AL CLIENTE</text>
+  <text x='306' y='394' font-size='24' font-family='Arial, sans-serif' fill='#334155'>Vacante operativa</text>
+</svg>

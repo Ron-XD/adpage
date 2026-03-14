@@ -1,0 +1,12 @@
+- [x] Verify that the copilot-instructions.md file in the .github directory is created.
+- [x] Clarify Project Requirements.
+- [x] Scaffold the Project.
+- [x] Customize the Project.
+- [x] Install Required Extensions. No extensions required by setup info.
+- [x] Compile the Project. `npm run lint` and `npm run build` passed.
+- [x] Create and Run Task. Skipped because existing npm scripts are sufficient (`dev`, `build`, `start`, `lint`).
+- [x] Launch the Project. Development server started with `npm run dev` on port `3001`.
+- [x] Ensure Documentation is Complete. README updated and comments removed from this file.
+
+- Keep communication concise and focused.
+- Follow development best practices.

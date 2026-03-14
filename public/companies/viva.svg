@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Viva Market logo">
+  <rect width="64" height="64" rx="14" fill="#f97316"/>
+  <path d="M13 21h7l6 19 6-19h7l-10 26h-6L13 21Z" fill="#fff"/>
+  <rect x="41" y="21" width="10" height="26" rx="2" fill="#fff"/>
+</svg>

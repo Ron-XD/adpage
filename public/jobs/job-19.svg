@@ -1,0 +1,19 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 680' role='img' aria-label='Portero para control de acceso turno dia'>
+  <defs>
+    <linearGradient id='bg19' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='#e2e8f0'/>
+      <stop offset='100%' stop-color='#cbd5e1'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='680' fill='url(#bg19)'/>
+  <rect x='48' y='44' width='1104' height='592' rx='24' fill='white' opacity='0.6'/>
+  <g>
+    <rect x='95' y='118' width='138' height='176' rx='12' fill='#334155'/><rect x='122' y='102' width='84' height='30' rx='10' fill='white' opacity='0.9'/><path d='M118 168h92M118 196h92M118 224h72' stroke='white' stroke-width='8' opacity='0.85'/>
+  </g>
+  <rect x='306' y='128' width='806' height='58' rx='12' fill='#334155' opacity='0.18'/>
+  <rect x='306' y='214' width='736' height='44' rx='10' fill='#0f172a' opacity='0.14'/>
+  <rect x='306' y='276' width='680' height='38' rx='10' fill='#0f172a' opacity='0.12'/>
+  <text x='306' y='164' font-size='30' font-family='Arial, sans-serif' font-weight='700' fill='#0f172a'>Portero para control de acceso turno dia</text>
+  <text x='306' y='344' font-size='26' font-family='Arial, sans-serif' font-weight='700' fill='#334155'>ADMINISTRACION</text>
+  <text x='306' y='394' font-size='24' font-family='Arial, sans-serif' fill='#334155'>Vacante operativa</text>
+</svg>
