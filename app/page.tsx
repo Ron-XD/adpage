@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Pagination } from "@/components/Pagination";
 import { i18n, normalizeLang } from "@/lib/i18n";
-import { filterJobs, getAllJobs, paginateJobs } from "@/lib/jobs";
+import { filterJobs, getAllJobs, getJobImageAlt, getJobImageSrc, paginateJobs } from "@/lib/jobs";
 
 export const metadata: Metadata = {
   title: "JobPoint | Ultimas entradas",
@@ -73,14 +73,14 @@ export default async function HomePage({
 
           <div className="divide-y divide-slate-300 bg-[#efefef] p-3">
             {posts.length ? posts.map((post) => (
-              <article key={post.id} className="grid gap-5 py-6 md:grid-cols-[300px_minmax(0,1fr)]">
-                <Link href={`/jobs/${post.slug}`}>
+              <article key={post.id} className="grid gap-5 py-6 md:grid-cols-[300px_minmax(0,1fr)] items-stretch">
+                <Link href={`/jobs/${post.slug}`} className="h-full">
                   <Image
-                    src={post.image}
-                    alt={post.title}
+                    src={getJobImageSrc(post)}
+                    alt={getJobImageAlt(post, lang)}
                     width={300}
                     height={180}
-                    className="h-[180px] w-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </Link>
 

@@ -26,7 +26,13 @@ export function Pagination({ basePath, currentPage, totalPages, query, lang }: P
     return null;
   }
 
-  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const MAX_VISIBLE_PAGES = 5;
+  const startPage = Math.min(
+    Math.max(currentPage - Math.floor(MAX_VISIBLE_PAGES / 2), 1),
+    Math.max(totalPages - MAX_VISIBLE_PAGES + 1, 1),
+  );
+  const endPage = Math.min(startPage + MAX_VISIBLE_PAGES - 1, totalPages);
+  const pages = Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
   const nextPage = Math.min(totalPages, currentPage + 1);
 
   return (

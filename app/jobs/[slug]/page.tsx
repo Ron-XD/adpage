@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { BriefcaseIcon, MapPinIcon, SalaryIcon } from "@/components/icons";
 import { jobs } from "@/lib/data";
 import { i18n, normalizeLang } from "@/lib/i18n";
-import { getJobBySlug } from "@/lib/jobs";
+import { getJobBySlug, getJobImageAlt, getJobImageSrc } from "@/lib/jobs";
 
 export async function generateStaticParams() {
   return jobs.map((job) => ({ slug: job.slug }));
@@ -51,8 +51,8 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
 
       <header className="mt-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <Image
-          src={job.image}
-          alt={job.title}
+          src={getJobImageSrc(job)}
+          alt={getJobImageAlt(job, lang)}
           width={1100}
           height={520}
           className="mb-5 h-56 w-full rounded-xl object-cover sm:h-72"

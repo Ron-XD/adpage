@@ -48,7 +48,38 @@ const jobSubcategoryBySlug: Record<string, JobSubcategory> = {
   "operador-montacarga-basico": "montacarga",
   "personal-aseo-centro-comercial": "limpieza",
   "asistente-servicio-habitaciones": "hotel",
+  "auxiliar-limpieza-clinica-dental-noche": "limpieza",
+  "operador-picking-almacen-ecommerce": "almacen",
+  "camarera-cafeteria-turno-manana": "camarera",
+  "portero-condominio-turno-noche": "portero",
+  "recepcionista-hostal-zona-centro": "hotel",
+  "ayudante-cocina-restaurante-ejecutivo": "cocina",
+  "operario-montacarga-patio-logistico": "montacarga",
+  "personal-aseo-universidad-privada": "limpieza",
+  "anfitriona-tienda-departamental": "anfitriona",
+  "auxiliar-bodega-despacho-rapido": "almacen",
+  "housekeeping-hotel-ejecutivo": "hotel",
+  "mozo-salon-eventos-corporativos": "camarera",
+  "operador-carga-centro-distribucion": "montacarga",
+  "personal-limpieza-gimnasio": "limpieza",
+  "portero-recepcion-torre-empresarial": "portero",
+  "auxiliar-cocina-cafeteria-escolar": "cocina",
+  "cajero-multifuncional-minimarket": "anfitriona",
+  "asistente-habitaciones-apart-hotel": "hotel",
+  "picker-pedidos-turno-tarde": "almacen",
+  "anfitrion-servicio-cliente-supermercado": "anfitriona",
 };
+
+const customImageBySlug: Record<string, string> = {
+  "necesitamos-empleada-domestica-lunes-viernes": "/jobs/empleada-domestica-v2.webp",
+  "auxiliar-minimarket-turno-tarde": "/jobs/auxiliar-minimarket.webp",
+  "ayudante-cocina-hotel-turistico": "/jobs/ayudante-cocina.webp",
+  "se-solicita-encargada-tienda": "/jobs/encargada-tienda.webp",
+  "operador-montacarga-basico": "/jobs/operador-montacarga.webp",
+  "se-solicita-camarera-part-time-full-time": "/jobs/camarera-part-time.webp",
+};
+
+const customImageAltBySlug: Record<string, string> = {};
 
 export function normalize(text: string) {
   return text
@@ -277,4 +308,25 @@ export function formatDate(dateString: string, lang: Lang = "es") {
   });
 
   return formatter.format(new Date(dateString));
+}
+
+function getSeoImageBySlug(job: Job) {
+  return `/jobs/${job.slug}.jpg`;
+}
+
+export function getJobImageSrc(job: Job) {
+  return customImageBySlug[job.slug] ?? getSeoImageBySlug(job);
+}
+
+export function getJobImageAlt(job: Job, lang: Lang = "es") {
+  const customAlt = customImageAltBySlug[job.slug];
+  if (customAlt) {
+    return customAlt;
+  }
+
+  if (lang === "en") {
+    return `${job.title} at ${job.company} in ${job.city} (${job.employmentType}) - job opportunity`;
+  }
+
+  return `oferta de empleo: ${job.title} en ${job.company}, ${job.city} (${job.employmentType})`;
 }

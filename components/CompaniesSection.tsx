@@ -13,7 +13,7 @@ export function CompaniesSection() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {companies.map((company) => (
           <article key={company.name} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-            <Image src={company.logo} alt={company.name} width={64} height={64} className="h-12 w-12 rounded-lg" />
+            <Image src={company.logo} alt={`Logo de ${company.name}`} width={64} height={64} className="h-12 w-12 rounded-lg" />
             <h3 className="mt-3 text-sm font-bold text-slate-900">{company.name}</h3>
             <p className="text-xs text-slate-500">{company.industry}</p>
             <p className="mt-2 text-xs font-semibold text-cyan-700">{company.openRoles} vacantes abiertas</p>

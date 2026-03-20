@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -7,6 +8,8 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { i18n, type Lang } from "@/lib/i18n";
+
+const LOGO_VERSION = "20260319";
 
 const navLinks = [
   { href: "/contact", es: "Contacto", en: "Contact" },
@@ -55,27 +58,20 @@ export function Header({ lang }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-300 bg-[#ececec]">
-      <div className="mx-auto w-full max-w-6xl px-3 py-4 sm:px-6 sm:py-7 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-6 sm:py-7 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
-          <Link href="/" className="inline-flex items-center gap-2 group" aria-label="JobPoint">
-            {/* Like icon */}
-            <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm sm:h-12 sm:w-12 sm:rounded-xl">
-              <svg viewBox="0 0 36 36" className="h-8 w-8 sm:h-10 sm:w-10" fill="none" aria-hidden="true">
-                <rect x="3" y="17" width="8" height="15" rx="2" fill="#0a66c2" stroke="#0b1b3b" strokeWidth="1.4" />
-                <path
-                  d="M14 30h10.5c1.7 0 3-1.3 3-3v-2.3c1.7-.4 2.8-2 2.8-3.7 0-.8-.3-1.7-.8-2.3.5-.6.8-1.4.8-2.2 0-1.9-1.3-3.4-3.1-3.8.2-2-.3-3.7-1.4-4.8-1.1-1.1-2.7-1.5-4.5-1.3-.3 0-.7.2-.9.5-.2.3-.3.7-.2 1.1.5 2.1-.1 4.3-1.6 5.8L14 18.2V30Z"
-                  fill="#ffffff"
-                  stroke="#0b1b3b"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path d="M27.5 24.7h-4.7M27.8 20.8h-4.9M27 16.9h-4.6" stroke="#0b1b3b" strokeWidth="1.2" strokeLinecap="round" />
-              </svg>
-            </span>
+          <Link href="/" className="inline-flex items-center gap-1 group" aria-label="JobPoint">
+            <Image
+              src={`/logo-conecta.webp?v=${LOGO_VERSION}`}
+              alt="Conecta Red de Empleos"
+              width={48}
+              height={48}
+              className="h-7 w-7 shrink-0 object-contain sm:h-12 sm:w-12"
+              priority
+            />
             {/* Bold brand wordmark */}
             <span
-              className="text-2xl font-extrabold uppercase tracking-[0.05em] sm:text-4xl lg:text-5xl"
+              className="text-lg font-extrabold uppercase tracking-[0.04em] sm:text-4xl lg:text-5xl"
               style={{
                 fontFamily: "var(--font-orbitron), var(--font-space-grotesk), sans-serif",
                 backgroundImage: "linear-gradient(90deg, #f77737 0%, #fcaf45 38%, #0a66c2 100%)",
@@ -88,15 +84,15 @@ export function Header({ lang }: HeaderProps) {
             </span>
           </Link>
 
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <div className="ml-auto flex items-center gap-1 sm:gap-3">
             <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-black text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-black text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
                 <path d="M18.9 2H22l-6.78 7.75L23 22h-6.1l-4.78-6.23L6.67 22H3.55l7.26-8.3L1 2h6.25l4.32 5.72L18.9 2Zm-1.07 18h1.69L6.3 3.9H4.5L17.83 20Z" />
               </svg>
             </a>
@@ -106,9 +102,9 @@ export function Header({ lang }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#feda75] via-[#fa7e1e] via-35% to-[#d62976] text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#feda75] via-[#fa7e1e] via-35% to-[#d62976] text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-7 sm:w-7" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-7 sm:w-7" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -120,10 +116,22 @@ export function Header({ lang }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[#0f0f10] text-[#25f4ee] shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0f0f10] text-[#25f4ee] shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
                 <path d="M14.5 3c.2 1.7 1.2 3 2.8 3.6 1 .4 2 .5 3 .4v2.7c-1.4.1-2.8-.2-4.1-.8v6.6c0 2.9-2.3 5.2-5.2 5.2S5.8 18.4 5.8 15.5 8.1 10.3 11 10.3c.3 0 .7 0 1 .1V13a3 3 0 0 0-1-.2c-1.5 0-2.7 1.2-2.7 2.7S9.5 18.2 11 18.2s2.7-1.2 2.7-2.7V3h.8Z" />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#1877f2] text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.5V4.8c-.3 0-1.2-.1-2.3-.1-2.2 0-3.8 1.3-3.8 3.9V11H8v3h2.6v8h2.9Z" />
               </svg>
             </a>
 
@@ -132,9 +140,9 @@ export function Header({ lang }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[#0a66c2] text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
+              className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#0a66c2] text-white shadow-sm transition hover:scale-105 sm:h-12 sm:w-12 sm:rounded-xl"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-7 sm:w-7" fill="currentColor" aria-hidden="true">
                 <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0Z" />
               </svg>
             </a>
