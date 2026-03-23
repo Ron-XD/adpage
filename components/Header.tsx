@@ -98,7 +98,7 @@ export function Header({ lang }: HeaderProps) {
             </a>
 
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/jobpoint.24/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
