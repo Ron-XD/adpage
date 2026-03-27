@@ -84,8 +84,8 @@ export function JobChatbot({ lang }: JobChatbotProps) {
   return (
     <div className="fixed bottom-5 right-5 z-[70]">
       {open ? (
-        <div className="w-[92vw] max-w-sm overflow-hidden rounded-xl border border-slate-300 bg-white shadow-2xl">
-          <div className="flex items-center justify-between bg-[#1f2024] px-3 py-2 text-white">
+        <div className="w-[92vw] max-w-sm overflow-hidden rounded-xl border border-[#fa7e1e] bg-white shadow-2xl">
+          <div className="flex items-center justify-between bg-[#1a8fbc] px-3 py-2 text-white">
             <p className="text-sm font-bold">{t.chatbotTitle}</p>
             <button type="button" onClick={() => setOpen(false)} className="text-lg leading-none">
               ×

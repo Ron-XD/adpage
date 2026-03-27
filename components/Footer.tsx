@@ -34,7 +34,7 @@ export function Footer({ lang }: FooterProps) {
             <li><a href="https://linkedin.com" className="hover:text-white">LinkedIn</a></li>
             <li><a href="https://facebook.com" className="hover:text-white">Facebook</a></li>
             <li><a href="https://x.com" className="hover:text-white">X / Twitter</a></li>
-            <li><a href="https://instagram.com" className="hover:text-white">Instagram</a></li>
+            <li><a href="https://www.instagram.com/jobpoint.24/" className="hover:text-white">Instagram</a></li>
           </ul>
         </div>
       </div>
