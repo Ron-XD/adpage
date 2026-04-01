@@ -47,11 +47,11 @@ export function ThemeToggle({ lang }: ThemeToggleProps) {
   }
 
   return (
-    <div className="inline-flex items-center overflow-hidden rounded border border-slate-500">
+    <div className="inline-flex h-9 items-center overflow-hidden rounded border border-slate-500">
       <button
         type="button"
         onClick={() => switchTheme("light")}
-        className={`px-3 py-1 text-xs font-bold uppercase transition ${
+        className={`flex items-center justify-center px-3 py-2 text-xs font-bold uppercase transition ${
           theme === "light" ? "bg-[#1a8fbc] text-white" : "bg-[#1f2024] text-slate-200 hover:bg-[#2a2b31]"
         }`}
         aria-label={lang === "en" ? "Light mode" : "Modo claro"}
@@ -65,7 +65,7 @@ export function ThemeToggle({ lang }: ThemeToggleProps) {
       <button
         type="button"
         onClick={() => switchTheme("dark")}
-        className={`px-3 py-1 text-xs font-bold uppercase transition ${
+        className={`flex items-center justify-center px-3 py-2 text-xs font-bold uppercase transition ${
           theme === "dark" ? "bg-[#1a8fbc] text-white" : "bg-[#1f2024] text-slate-200 hover:bg-[#2a2b31]"
         }`}
         aria-label={lang === "en" ? "Dark mode" : "Modo oscuro"}

@@ -34,11 +34,12 @@ const jobsMenuLinks = [
 
 interface HeaderProps {
   lang: Lang;
+  searchQuery?: string;
 }
 
 type MobileMenuSection = "privacy" | "tips" | "jobs";
 
-export function Header({ lang }: HeaderProps) {
+export function Header({ lang, searchQuery = "" }: HeaderProps) {
   const t = i18n[lang];
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -58,7 +59,7 @@ export function Header({ lang }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-300 bg-[#ececec]">
-      <div className="mx-auto w-full max-w-6xl px-3 py-3 sm:px-6 sm:py-7 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-3 py-2 sm:px-6 sm:py-7 lg:px-8">
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           <Link href="/" className="inline-flex items-center gap-1 group" aria-label="JobPoint">
             <Image
@@ -150,26 +151,26 @@ export function Header({ lang }: HeaderProps) {
         </div>
       </div>
 
-      <div className="border-t border-slate-700 bg-[#1f2024]">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <nav className="hidden flex-nowrap items-center gap-0 md:flex">
+      <div className="hidden border-t border-slate-700 bg-[#1f2024] md:block">
+        <div className="mx-auto flex w-full max-w-6xl items-center h-12 px-4 sm:px-6 lg:px-8">
+          <nav className="hidden flex-nowrap items-center gap-0 md:flex h-full w-full">
             <Link
               href="/"
-              className="whitespace-nowrap border-r border-slate-700 px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+              className="flex items-center whitespace-nowrap border-r border-slate-700 px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31] h-full"
             >
               {t.home}
             </Link>
             <Link
               href="/about"
-              className="whitespace-nowrap border-r border-slate-700 px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+              className="flex items-center whitespace-nowrap border-r border-slate-700 px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31] h-full"
             >
               {t.about}
             </Link>
 
-            <div className="group relative border-r border-slate-700">
+            <div className="group relative border-r border-slate-700 h-full flex items-center">
             <Link
               href="/legal/privacy"
-              className="block whitespace-nowrap px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+              className="block whitespace-nowrap px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
               aria-haspopup="true"
             >
               {t.privacyPolicies} »
@@ -188,10 +189,10 @@ export function Header({ lang }: HeaderProps) {
             </div>
           </div>
 
-            <div className="group relative border-r border-slate-700">
+            <div className="group relative border-r border-slate-700 h-full flex items-center">
               <Link
                 href="/consejos"
-                className="block whitespace-nowrap px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+                className="block whitespace-nowrap px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
                 aria-haspopup="true"
               >
                 {lang === "en" ? "Tips" : "Consejos"} »
@@ -210,10 +211,10 @@ export function Header({ lang }: HeaderProps) {
               </div>
             </div>
 
-            <div className="group relative border-r border-slate-700">
+            <div className="group relative border-r border-slate-700 h-full flex items-center">
               <Link
                 href="/jobs"
-                className="block whitespace-nowrap px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+                className="block whitespace-nowrap px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
                 aria-haspopup="true"
               >
                 {lang === "en" ? "Jobs" : "Empleos"} »
@@ -236,16 +237,25 @@ export function Header({ lang }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="whitespace-nowrap border-r border-slate-700 px-5 py-4 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31]"
+                className="flex items-center whitespace-nowrap border-r border-slate-700 px-5 text-sm font-bold uppercase text-white transition hover:bg-[#2a2b31] h-full"
               >
                 {lang === "en" ? link.en : link.es}
               </Link>
             ))}
 
-            <div className="ml-4">
+            <div className="hidden lg:flex items-center gap-2 h-9">
+              <form action="/" className="flex border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-800 rounded overflow-hidden h-9">
+                <input
+                  name="query"
+                  placeholder={t.searchPlaceholder}
+                  defaultValue={searchQuery}
+                  className="h-full px-3 text-sm text-slate-700 outline-none dark:bg-slate-800 dark:text-white dark:placeholder-slate-400 w-40"
+                />
+                <button className="grid h-full w-9 place-content-center bg-[#1997c5] text-white dark:bg-[#1a6fa0] shrink-0" aria-label={t.searchAria}>
+                  ⌕
+                </button>
+              </form>
               <LanguageSwitcher lang={lang} />
-            </div>
-            <div className="ml-2">
               <ThemeToggle lang={lang} />
             </div>
 
@@ -255,7 +265,7 @@ export function Header({ lang }: HeaderProps) {
 
       <div className="border-t border-slate-700 bg-[#1f2024] md:hidden">
         <div className="mx-auto w-full max-w-6xl px-2">
-          <nav className="py-2">
+          <nav className="py-1">
             <div className="flex flex-wrap items-center gap-1">
               <Link href="/" className="border border-slate-600 px-3 py-2 text-xs font-bold uppercase text-white">
                 {t.home}
@@ -291,6 +301,12 @@ export function Header({ lang }: HeaderProps) {
                 </button>
               </div>
 
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="border border-slate-600 px-3 py-2 text-xs font-bold uppercase text-white">
+                  {lang === "en" ? link.en : link.es}
+                </Link>
+              ))}
+
               <div className="inline-flex overflow-hidden border border-slate-600">
                 <Link href="/jobs" className="px-3 py-2 text-xs font-bold uppercase text-white">
                   {lang === "en" ? "Jobs" : "Empleos"}
@@ -305,20 +321,23 @@ export function Header({ lang }: HeaderProps) {
                 </button>
               </div>
 
-              <div className="basis-full h-1" />
+              <div className="basis-full h-0.5" />
 
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="border border-slate-600 px-3 py-2 text-xs font-bold uppercase text-white">
-                  {lang === "en" ? link.en : link.es}
-                </Link>
-              ))}
-
-              <div className="basis-full h-1" />
-
-              <div className="flex basis-full justify-start gap-1 pt-1">
-                <LanguageSwitcher lang={lang} />
-                <ThemeToggle lang={lang} />
-              </div>
+              <form action="/" className="basis-full mb-1 flex border border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-800 rounded overflow-hidden gap-1">
+                <input
+                  name="query"
+                  placeholder={t.searchPlaceholder}
+                  defaultValue={searchQuery}
+                  className="h-8 flex-1 px-2 text-xs text-slate-700 outline-none dark:bg-slate-800 dark:text-white dark:placeholder-slate-400"
+                />
+                <button className="grid h-8 w-8 place-content-center bg-[#1997c5] text-white dark:bg-[#1a6fa0] shrink-0" aria-label={t.searchAria}>
+                  ⌕
+                </button>
+                <div className="flex items-center gap-1">
+                  <LanguageSwitcher lang={lang} />
+                  <ThemeToggle lang={lang} />
+                </div>
+              </form>
 
               {privacyOpenMobile ? (
                 <div className="basis-full overflow-hidden border border-slate-600 bg-[#2a2b31]">

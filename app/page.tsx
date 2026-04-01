@@ -8,7 +8,7 @@ import { i18n, normalizeLang } from "@/lib/i18n";
 import { filterJobs, getAllJobs, getJobImageAlt, getJobImageSrc, paginateJobs } from "@/lib/jobs";
 
 export const metadata: Metadata = {
-  title: "JobPoint | Ultimas entradas",
+  title: "JobPoint | Ultimas empleos",
   description: "Portal minimalista con menu superior, sidebar izquierdo y cuerpo central de ofertas laborales.",
 };
 
@@ -36,32 +36,7 @@ export default async function HomePage({
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-      <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="h-fit bg-[#efefef] p-3">
-          <form action="/" className="mb-6 flex border border-slate-300 bg-white">
-            <input
-              name="query"
-              placeholder={t.searchPlaceholder}
-              defaultValue={query}
-              className="h-10 flex-1 px-3 text-sm text-slate-700 outline-none"
-            />
-            <button className="grid h-10 w-12 place-content-center bg-[#1997c5] text-white" aria-label={t.searchAria}>
-              ⌕
-            </button>
-          </form>
-
-          <h2 className="bg-[#1f2024] px-3 py-2 text-sm font-extrabold uppercase text-white">{t.recentPosts}</h2>
-          <ul className="mt-4 space-y-3 text-[1.04rem] leading-8 text-[#0d6fa0]">
-            {recent.map((post) => (
-              <li key={post.id} className="list-disc pl-4 marker:text-slate-900">
-                <Link href={`/jobs/${post.slug}`} className="uppercase hover:underline">
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
-
+      <div className="grid gap-6 lg:grid-cols-[1fr]">
         <section>
           <h2 className="bg-[#1f2024] px-3 py-2 text-sm font-extrabold uppercase text-white">{t.latestPosts}</h2>
 
@@ -125,6 +100,19 @@ export default async function HomePage({
                 query={{ query }}
                 lang={lang}
               />
+            </div>
+
+            <div className="mt-8">
+              <h2 className="bg-[#1f2024] px-3 py-2 text-sm font-extrabold uppercase text-white dark:bg-slate-800">{t.recentPosts}</h2>
+              <ul className="mt-4 space-y-3 bg-[#efefef] p-3 text-[1.04rem] leading-8 text-[#0d6fa0] dark:bg-slate-900 dark:text-[#60a5d6]" style={{ listStyleType: "upper-roman" }}>
+                {recent.map((post) => (
+                  <li key={post.id} className="pl-6 marker:font-bold marker:text-slate-900 dark:marker:text-slate-300">
+                    <Link href={`/jobs/${post.slug}`} className="uppercase hover:underline">
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
